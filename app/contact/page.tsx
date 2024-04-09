@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
-const Contact = () => {
+export default function Contact () {
   const [formData, setFormData] = useState({
     fullName: "",
     emailAddress: "",
@@ -70,7 +70,7 @@ const Contact = () => {
   return (
     <Box
       p={{ base: "10", md: "40" }}
-      pt={{ base: "10", md: "40" }}
+      pt={{ base: "40", md: "40" }}
       bg="orange.500"
       borderRadius="md"
       textAlign="center"
@@ -244,6 +244,5 @@ const Contact = () => {
   );
 };
 
-export default Contact;
 
 

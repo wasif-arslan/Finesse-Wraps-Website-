@@ -59,24 +59,23 @@ const Header = () => {
           <Flex
             align="center"
             display={{ base: isMenuOpen ? "flex" : "none", md: "flex" }}
-            gap={16} 
-            fontSize={"xl"}// Show on small screens when menu is open
+            gap={16}
+            fontSize={"xl"} // Show on small screens when menu is open
           >
-            <Link href="/" >
-              Home
+            <Link href="/">Home</Link>
+            <Link href="/learn">Learn</Link>
+            <Link href="/reviews">Reviews</Link>
+            <Link href="/gallery">Gallery</Link>
+            <Link href="/contact">
+              <Button
+                backgroundColor="black"
+                textColor={"white"}
+                size="lg"
+                mr={8}
+              >
+                Contact
+              </Button>
             </Link>
-            <Link href="/" >
-              Learn
-            </Link>
-            <Link href="/" >
-              Reviews
-            </Link>
-            <Link href="/" >
-              Gallery
-            </Link>
-            <Button backgroundColor="black" textColor={"white"} size="lg"  mr={8}>
-              Contact
-            </Button>
           </Flex>
         </Flex>
       </Flex>
@@ -89,20 +88,22 @@ const Header = () => {
           <DrawerBody>
             <Flex direction="column">
               <Text fontSize="lg" my={2}>
-                Home
+                <Link href="/"> Home</Link>
               </Text>
               <Text fontSize="lg" my={2}>
-                Learn
+                <Link href="/learn">Learn</Link>
               </Text>
               <Text fontSize="lg" my={2}>
-                Reviews
+                <Link href="/reviews">Reviews</Link>
               </Text>
               <Text fontSize="lg" my={2}>
-                Gallery
+                <Link href="/gallery"> Gallery</Link>
               </Text>
-              <Button backgroundColor="black" color="white" size="lg" my={4}>
-                Contact
-              </Button>
+              <Link href="/contact">
+                <Button backgroundColor="black" color="white" size="lg" my={4}>
+                  Contact
+                </Button>
+              </Link>
             </Flex>
           </DrawerBody>
         </DrawerContent>

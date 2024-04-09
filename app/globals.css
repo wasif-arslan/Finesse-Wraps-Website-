@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.react-responsive-carousel .dot {
+    background-color: orange; /* Set dot color to orange */
+  }
+  

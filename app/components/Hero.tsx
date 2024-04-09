@@ -1,5 +1,6 @@
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 import Header from "./Header"; // Import the Header component
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -27,11 +28,9 @@ const Hero = () => {
         textAlign={"center"} // Set the height to 100% to occupy the full height of the parent container
       >
         <Heading as="h1" size="3xl" mb={4} mt={10}>
-          <Text as="span" >
-            Thermofoil & Architectural
-          </Text>
+          <Text as="span">Thermofoil & Architectural</Text>
           <br />
-          <Text as="span" >
+          <Text as="span">
             Films For {""}
             <Text as="span" fontStyle="italic">
               Full-Scale
@@ -45,9 +44,11 @@ const Hero = () => {
         <Text m={8} fontSize={"2xl"}>
           Transform Your Cabinets, Countertops, & Walls In Just 2-3 Days!
         </Text>
-        <Button colorScheme="orange" size="lg" fontSize={"xl"} m={5}>
-          Book a Free Consultation
-        </Button>
+        <Link href="/contact">
+          <Button colorScheme="orange" size="lg" fontSize={"xl"} m={5}>
+            Book a Free Consultation
+          </Button>
+        </Link>
       </Box>
 
       {/* Header Component */}
