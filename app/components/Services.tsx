@@ -55,7 +55,7 @@ const Services = () => {
             Armed with your ideas, our design experts will craft a custom
             kitchen blueprint. Leveraging state-of-the-art technology, we will
             present you with a range of color and style options that perfectly
-            complement your home's unique character.
+            complement your home unique character.
           </Text>
         </Box>
         <Box
