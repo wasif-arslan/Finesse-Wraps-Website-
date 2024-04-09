@@ -19,10 +19,9 @@ const GetStarted = () => {
         mr={{ base: "2", md: "20" }}
       >
         Transform your home with Finesse Wraps Ltd. Serving Kelowna and the
-        Okanagan, we're your local experts in thermofoil cabinet design. Contact
-        us for a free quote and let's create your dream space. Get in touch now!
+        Okanagan, we are your local experts in thermofoil cabinet design. Contact
+        us for a free quote and lets create your dream space. Get in touch now!
       </Text>
-
       <Link href="/contact">
         <Button color="black" p={5} size="lg" fontSize="2xl" pl={20} pr={20}>
           Get Started

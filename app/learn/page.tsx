@@ -10,20 +10,35 @@ import {
 
 const Learn = () => {
   return (
-    <Box p={ {base: "5", md: "20" }} maxW="100%" mx="auto" mt={{ base: "20", md: "20" }}>
-      <Heading as="h1" textAlign="center" mb={12} textColor={"orange.500"} fontSize={"4xl"}>
+    <Box
+      p={{ base: "5", md: "20" }}
+      maxW="100%"
+      mx="auto"
+      mt={{ base: "20", md: "20" }}
+    >
+      <Heading
+        as="h1"
+        textAlign="center"
+        mb={12}
+        textColor={"orange.500"}
+        fontSize={"4xl"}
+      >
         Learn About Our Services
       </Heading>
 
       <VStack spacing={8} align="start">
-        <Flex direction={{ base: "column", md: "row" }} alignItems="center" gap={5}>
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          alignItems="center"
+          gap={5}
+        >
           <Box flex="1">
             <Heading as="h2" fontSize="2xl" mb={4} textColor={"orange.500"}>
               Kitchen Resurfacing
             </Heading>
             <Text fontSize={"xl"}>
               We specialize in transforming kitchen spaces with our innovative
-              resurfacing techniques. Whether you're looking to refresh your
+              resurfacing techniques. Whether you are looking to refresh your
               cabinets, countertops, or other surfaces, our team at Finesse
               Wraps Ltd. has the expertise to revitalize your kitchen.
             </Text>
@@ -63,7 +78,11 @@ const Learn = () => {
 
         <Divider />
 
-        <Flex direction={{ base: "column", md: "row" }} alignItems="center" gap={5}>
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          alignItems="center"
+          gap={5}
+        >
           <Box flex="1">
             <Heading as="h2" fontSize="2xl" mb={4} textColor={"orange.500"}>
               Our Approach
