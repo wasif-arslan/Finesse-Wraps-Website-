@@ -14,7 +14,6 @@ import {
   DrawerHeader,
   DrawerBody,
   IconButton,
-  background,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
@@ -67,12 +66,7 @@ const Header = () => {
             <Link href="/reviews">Reviews</Link>
             <Link href="/gallery">Gallery</Link>
             <Link href="/contact">
-              <Button
-                backgroundColor="black"
-                textColor={"white"}
-                size="lg"
-                mr={8}
-              >
+              <Button colorScheme="black" bgColor={"black"} size="lg" mr={8}>
                 Contact
               </Button>
             </Link>
@@ -100,7 +94,7 @@ const Header = () => {
                 <Link href="/gallery"> Gallery</Link>
               </Text>
               <Link href="/contact">
-                <Button backgroundColor="black" color="white" size="lg" my={4}>
+                <Button colorScheme="black" bgColor={"black"} size="lg" my={4}>
                   Contact
                 </Button>
               </Link>

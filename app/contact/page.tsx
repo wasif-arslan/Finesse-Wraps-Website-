@@ -14,8 +14,18 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
-export default function Contact () {
-  const [formData, setFormData] = useState({
+interface FormData {
+  fullName: string;
+  emailAddress: string;
+  phoneNumber: string;
+  propertyType: string;
+  budget: string;
+  location: string;
+  projectDetails: string;
+}
+
+const Contact = () => {
+  const [formData, setFormData] = useState<FormData>({
     fullName: "",
     emailAddress: "",
     phoneNumber: "",
@@ -25,8 +35,9 @@ export default function Contact () {
     projectDetails: "",
   });
   const [emailSent, setEmailSent] = useState(false);
+  const [formError, setFormError] = useState("");
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -35,8 +46,27 @@ export default function Contact () {
   };
 
   const handleSubmit = async () => {
+    // Check if any of the required fields are empty
+    const requiredFields: Array<keyof FormData> = [
+      "fullName",
+      "emailAddress",
+      "phoneNumber",
+      "propertyType",
+      "budget",
+      "location",
+      "projectDetails",
+    ];
+    for (const field of requiredFields) {
+      if (!formData[field]) {
+        setFormError(
+          `Please fill in ${field.replace(/([A-Z])/g, " $1").trim()}.`
+        );
+        return;
+      }
+    }
+
     try {
-      const response = await fetch("https://formsubmit.co/wasifarslan81@gmail.com", {
+      const response = await fetch("https://formbold.com/s/oYZkQ", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,6 +76,7 @@ export default function Contact () {
       if (response.ok) {
         // Email sent successfully
         setEmailSent(true);
+        setFormError("");
         setTimeout(() => {
           setEmailSent(false);
           setFormData({
@@ -84,7 +115,7 @@ export default function Contact () {
         flexWrap={{ base: "wrap", md: "nowrap" }}
         gap={4}
       >
-        <FormControl id="fullName" display="inline-block" mr={4}>
+        <FormControl id="fullName" display="inline-block" mr={4} isRequired>
           <FormLabel fontSize={"xl"}>Full Name</FormLabel>
           <Input
             type="text"
@@ -92,10 +123,11 @@ export default function Contact () {
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
+            required
           />
         </FormControl>
 
-        <FormControl id="emailAddress" display="inline-block" mr={4}>
+        <FormControl id="emailAddress" display="inline-block" mr={4} isRequired>
           <FormLabel fontSize={"xl"}>Email Address</FormLabel>
           <Input
             type="email"
@@ -103,10 +135,11 @@ export default function Contact () {
             name="emailAddress"
             value={formData.emailAddress}
             onChange={handleChange}
+            required
           />
         </FormControl>
 
-        <FormControl id="phoneNumber" display="inline-block" mr={4}>
+        <FormControl id="phoneNumber" display="inline-block" mr={4} isRequired>
           <FormLabel fontSize={"xl"}>Phone Number</FormLabel>
           <Input
             type="text"
@@ -114,6 +147,7 @@ export default function Contact () {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}
+            required
           />
         </FormControl>
       </Flex>
@@ -124,7 +158,7 @@ export default function Contact () {
         flexWrap={{ base: "wrap", md: "nowrap" }}
         gap={4}
       >
-        <FormControl id="propertyType" display="inline-block" mr={4}>
+        <FormControl id="propertyType" display="inline-block" mr={4} isRequired>
           <FormLabel fontSize={"xl"}>Property Type</FormLabel>
           <Flex>
             <Input
@@ -133,6 +167,7 @@ export default function Contact () {
               name="propertyType"
               value={formData.propertyType}
               onChange={handleChange}
+              required
             />
             <Menu>
               <MenuButton as={Flex} m={3} cursor="pointer">
@@ -154,7 +189,7 @@ export default function Contact () {
           </Flex>
         </FormControl>
 
-        <FormControl id="budget" display="inline-block" mr={4}>
+        <FormControl id="budget" display="inline-block" mr={4} isRequired>
           <FormLabel fontSize={"xl"}>Estimated Budget</FormLabel>
           <Flex>
             <Input
@@ -163,6 +198,7 @@ export default function Contact () {
               name="budget"
               value={formData.budget}
               onChange={handleChange}
+              required
             />
             <Menu>
               <MenuButton as={Flex} m={3} cursor="pointer">
@@ -183,7 +219,7 @@ export default function Contact () {
           </Flex>
         </FormControl>
 
-        <FormControl id="location" display="inline-block" mr={4}>
+        <FormControl id="location" display="inline-block" mr={4} isRequired>
           <FormLabel fontSize={"xl"}>Location of Project</FormLabel>
           <Flex>
             <Input
@@ -192,6 +228,7 @@ export default function Contact () {
               name="location"
               value={formData.location}
               onChange={handleChange}
+              required
             />
             <Menu>
               <MenuButton as={Flex} m={3} cursor="pointer">
@@ -209,7 +246,7 @@ export default function Contact () {
         </FormControl>
       </Flex>
 
-      <FormControl id="projectDetails" mr={4}>
+      <FormControl id="projectDetails" mr={4} isRequired>
         <FormLabel fontSize={"xl"}>Tell us more about your project</FormLabel>
         <Input
           type="text"
@@ -217,8 +254,15 @@ export default function Contact () {
           name="projectDetails"
           value={formData.projectDetails}
           onChange={handleChange}
+          required
         />
       </FormControl>
+
+      {formError && (
+        <Box textAlign="center" fontSize="lg">
+          <Box color="white">{formError}</Box>
+        </Box>
+      )}
 
       {emailSent && (
         <Box textAlign="center" color="white" fontSize="lg">
@@ -244,5 +288,4 @@ export default function Contact () {
   );
 };
 
-
-
+export default Contact;

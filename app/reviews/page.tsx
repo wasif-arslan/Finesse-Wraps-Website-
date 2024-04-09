@@ -153,8 +153,8 @@ const Reviews = () => {
           position="absolute"
           right={{ base: "auto", md: 5 }}
           left={{ base: 5, md: "auto" }}
-          bottom={{ base: 20, md: 20 }}
-          mb={{ base: 0, md: 10 }}
+          bottom={{ base: 10, md: 2 }}
+          mb={{ base: 10, md: 3 }}
           zIndex={1}
           textAlign="left"
         >
