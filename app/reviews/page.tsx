@@ -148,17 +148,17 @@ const Reviews = () => {
         <Box
           bg="rgba(255, 255, 255, 0.8)"
           textColor="black"
-          p={{ base: 6, md: 10 }}
+          p={{ base: 3, md: 10 }}
           borderRadius="md"
           position="absolute"
           right={{ base: "auto", md: 5 }}
           left={{ base: 5, md: "auto" }}
           bottom={{ base: 10, md: 2 }}
-          mb={{ base: 10, md: 3 }}
+          mb={{ base: 7, md: 3 }}
           zIndex={1}
           textAlign="left"
         >
-          <Text fontSize={{ base: "xl", md: "3xl" }}>{reviews[currentReviewIndex].quote}</Text>
+          <Text fontSize={{ base: "sm", md: "3xl" }}>{reviews[currentReviewIndex].quote}</Text>
         </Box>
       </Box>
     </Flex>
